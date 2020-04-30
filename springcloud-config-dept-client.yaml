@@ -1,0 +1,94 @@
+spring:
+  profiles:
+    active: dev
+    
+---
+server:
+  port: 8001
+
+# mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: com.coding.springcloud.pojo
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+
+
+# spring 配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-dept-client  # 微服务一定要有名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  # 数据源配置
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/springcloud1
+    username: root
+    password: 123456
+    dbcp2:  # 连接池配置
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+
+
+# Eureka 配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: 服务提供者8001 # 自己起名字
+
+
+info:
+  app.name: coding的微服务提供者8001
+  company.name: 艾编程
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+  
+---
+server:
+  port: 8001
+
+# mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: com.coding.springcloud.pojo
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+
+
+# spring 配置
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-dept-client  # 微服务一定要有名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  # 数据源配置
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/springcloud2
+    username: root
+    password: 123456
+    dbcp2:  # 连接池配置
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+
+
+# Eureka 配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: 服务提供者8001 # 自己起名字
+
+
+info:
+  app.name: coding的微服务提供者8001
+  company.name: 艾编程
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+  
