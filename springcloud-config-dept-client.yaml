@@ -22,7 +22,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  # 数据源配置
     driver-class-name: org.gjt.mm.mysql.Driver
-    url: jdbc:mysql://localhost:3306/springcloud1
+    url: jdbc:mysql://localhost:3306/springcloud
     username: root
     password: 123456
     dbcp2:  # 连接池配置
